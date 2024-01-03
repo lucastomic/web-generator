@@ -5,65 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¿Qué regalar a mi pareja?</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <style>
-        body {
-            background-color: #f8f9fa; /* Color de fondo suave */
-        }
-        h1 {
-            color: #007bff; /* Color que coincide con los botones de Bootstrap */
-            margin-bottom: 20px;
-        }
-        .container {
-            padding: 40px; /* Espacio adicional */
-            background-color: white; /* Fondo blanco para el contenido */
-            border-radius: 10px; /* Bordes redondeados */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Sombra sutil */
-        }
-        .clickable-div {
-            cursor: pointer; /* Cambia el cursor para indicar que es clicable */
-            border: 1px solid #ddd; /* Borde para el div */
-            padding: 10px; /* Espaciado interno */
-            text-align: center; /* Alinea el texto al centro */
-            margin: 10px; /* Margen externo */
-        }
-
-        .container {
-            text-align: center; /* Centrar el texto del contenedor */
-            padding: 20px;
-            background-color: #f8f9fa; /* Color de fondo suave */
-            border-radius: 15px; /* Bordes redondeados */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-        }
-
-        .clickable-div {
-            cursor: pointer; /* Cambia el cursor para indicar que es clicable */
-            margin-top: 20px;
-            padding: 15px;
-            border: 1px solid #ddd; /* Borde para el div */
-            border-radius: 10px; /* Bordes redondeados */
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave para hover */
-        }
-
-        .clickable-div:hover {
-            transform: scale(1.05); /* Efecto de escalado al pasar el ratón */
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al pasar el ratón */
-        }
-
-        .clickable-div img {
-            max-width: 50%; /* Asegura que la imagen no sobrepase el ancho del div */
-            height: auto; /* Mantiene la proporción de la imagen */
-            border-radius: 5px; /* Bordes redondeados en la imagen */
-        }
-
-        .clickable-div h3 {
-            color: #007bff; /* Color del título */
-            margin-top: 15px;
-        }
-
-        .clickable-div p {
-            color: #555; /* Color del texto */
-        }
-    </style>
+    <link rel="stylesheet" href="../assets/index.css">
+   
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -87,17 +30,38 @@
         <h1>{{.Title}}</h1>
         <p>Bienvenido a "Encuentra el Regalo Perfecto", tu destino definitivo para encontrar ideas de regalos únicas y personalizadas para parejas. Entendemos que cada relación es única, y encontrar el regalo perfecto para tu ser querido puede ser un desafío. Por eso, hemos creado una plataforma intuitiva y fácil de usar que te ayuda a descubrir el regalo ideal que refleje tu amor y aprecio.</p>
 
+        {{range .Products}}
+        <div>
+            <div class="row"> <!-- Fila para los divs -->
+                <div class="col-md-6"> <!-- Columna que ocupa 6 de 12 posibles en pantallas medianas -->
+                    <div class="clickable-div" data-link="{{.Link}}" onclick="window.location.href=this.getAttribute('data-link');">
+                        <img src="../assets/{{.ImageName}}" class="img-fluid" alt="Regalo para pareja">
+                        <h3>{{.Title}}</h3>
+                    </div>
+                </div>
+
+                <div class="col-md-6"> <!-- Segunda columna en la misma fila -->
+                    <div class="clickable-div" onclick="window.location.href='https://www.amazon.es/Smartbox-Mujer-Momentos-inolvidables-Ideas-Originales-1-Unisex-Adult/dp/B0BL9T9DQC/ref=sr_1_1_sspa?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2IWUDWAQB0J5&keywords=pareja&qid=1704302331&sprefix=pareja%2Caps%2C150&sr=8-1-spons&ufe=app_do%3Aamzn1.fos.5e544547-1f8e-4072-8c08-ed563e39fc7d&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1';">
+                        <img src="../assets/imagen2.jpg" class="img-fluid" alt="Regalo para pareja">
+                        <h3>Smartbox - Caja Regalo SPA y Relax para Dos</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{end}}
+
+
         <div class="row"> <!-- Fila para los divs -->
             <div class="col-md-6"> <!-- Columna que ocupa 6 de 12 posibles en pantallas medianas -->
                 <div class="clickable-div" onclick="window.location.href='https://www.amazon.es/Smartbox-regalo-actividad-bienestar-personas/dp/B07Z5LKT1Q/ref=sr_1_3_sspa?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2K31EQHS5C13O&keywords=smart%2Bbox&qid=1704302305&sprefix=smart%2Bbox%2Caps%2C169&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1';">
-                    <img src="./assets/imagen1.jpg" class="img-fluid" alt="Regalo para pareja">
+                    <img src="../assets/imagen1.jpg" class="img-fluid" alt="Regalo para pareja">
                     <h3>Smartbox - Caja Regalo SPA y Relax para Dos</h3>
                 </div>
             </div>
 
             <div class="col-md-6"> <!-- Segunda columna en la misma fila -->
                 <div class="clickable-div" onclick="window.location.href='https://www.amazon.es/Smartbox-Mujer-Momentos-inolvidables-Ideas-Originales-1-Unisex-Adult/dp/B0BL9T9DQC/ref=sr_1_1_sspa?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2IWUDWAQB0J5&keywords=pareja&qid=1704302331&sprefix=pareja%2Caps%2C150&sr=8-1-spons&ufe=app_do%3Aamzn1.fos.5e544547-1f8e-4072-8c08-ed563e39fc7d&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1';">
-                    <img src="./assets/imagen2.jpg" class="img-fluid" alt="Regalo para pareja">
+                    <img src="../assets/imagen2.jpg" class="img-fluid" alt="Regalo para pareja">
                     <h3>Smartbox - Caja Regalo SPA y Relax para Dos</h3>
                 </div>
             </div>
@@ -106,14 +70,14 @@
         <div class="row"> <!-- Fila para los divs -->
             <div class="col-md-6"> <!-- Columna que ocupa 6 de 12 posibles en pantallas medianas -->
                 <div class="clickable-div" onclick="window.location.href='https://www.amazon.es/GUATAFAC-Juegos-Pareja-%C3%8DNTIMOOS-Aniversario/dp/B0BG8X2W2M/ref=sr_1_5?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2IWUDWAQB0J5&keywords=pareja&qid=1704302331&sprefix=pareja%2Caps%2C150&sr=8-5';">
-                    <img src="./assets/imagen3.jpg" class="img-fluid" alt="Regalo para pareja">
+                    <img src="../assets/imagen3.jpg" class="img-fluid" alt="Regalo para pareja">
                     <h3>ÍNTIMOOS - El Mejor Juego para Parejas- Aniversario Regalos Originales, para 2 jugadores</h3>
                 </div>
             </div>
 
             <div class="col-md-6"> <!-- Segunda columna en la misma fila -->
                 <div class="clickable-div" onclick="window.location.href='https://www.amazon.es/SIN-RECHISTAR-Inolvidables-Originales-Aniversario/dp/B0B84LGPGT/ref=sr_1_9?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2IWUDWAQB0J5&keywords=pareja&qid=1704302331&sprefix=pareja%2Caps%2C150&sr=8-9';">
-                    <img src="./assets/imagen4.jpg" class="img-fluid" alt="Regalo para pareja">
+                    <img src="../assets/imagen4.jpg" class="img-fluid" alt="Regalo para pareja">
                     <h3>Sin Rechistar - Juego de Parejas - Juego de Parejas mas Divertido de España para Vivir Momentos Inolvidables - Regalos Originales - Regalo Aniversario Pareja</h3>
                 </div>
             </div>
