@@ -8,8 +8,8 @@ import (
 )
 
 func main() {
-	inputPath, _ := filepath.Abs("./inputs/firstPage.xml")
-	tmplPath, _ := filepath.Abs("./templates/template.html")
+	inputPath, _ := filepath.Abs("../inputs/firstPage.xml")
+	tmplPath, _ := filepath.Abs("../templates/template.html")
 	reader := xmlinput.New(inputPath)
 	generator := templategenerator.New(tmplPath)
 

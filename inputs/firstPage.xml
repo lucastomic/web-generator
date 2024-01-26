@@ -1,26 +1,27 @@
 <WebData>
-    <Title>Mi página de prueba</Title>
-    <Body> Bienvenido a "Encuentra el Regalo Perfecto", tu destino definitivo para encontrar ideas de regalos únicas y personalizadas para parejas. Entendemos que cada relación es única, y encontrar el regalo perfecto para tu ser querido puede ser un desafío. Por eso, hemos creado una plataforma intuitiva y fácil de usar que te ayuda a descubrir el regalo ideal que refleje tu amor y aprecio. </Body>
+    <Title>Huerto de casa</Title>
+    <Body> Descubre en JardinDeCasa.com la esencia de la jardinería urbana con nuestros huertos urbanos personalizados, ideales para transformar cualquier rincón de tu hogar en España en un oasis verde. Especializados en diseño, instalación y asesoramiento de huertos urbanos, proporcionamos soluciones a medida para que cultives verduras y plantas en espacios reducidos, fomentando un estilo de vida sostenible y en conexión con la naturaleza. Únete a nuestra comunidad y empieza a disfrutar de los beneficios de tener tu propio huerto en la ciudad. </Body>
     <Products>
         <Product>
-          <Title> Smartbox - Caja Regalo SPA y Relax para Dos </Title>
+          <Title> KHOMO GEAR Huerto Urbano Carrito Galvanizado Elevado para Cultivo en Casa Plantas Frutas Verduras Terraza Jardín Interior Exterior - Negro </Title>
           <ImageName>imagen1.jpg</ImageName>
-          <Url> https://www.amazon.es/Smartbox-Mujer-Momentos-inolvidables-Ideas-Originales-1-Unisex-Adult/dp/B0BL9T9DQC/ref=sr_1_1_sspa?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2IWUDWAQB0J5&keywords=pareja&qid=1704302331&sprefix=pareja%2Caps%2C150&sr=8-1-spons&ufe=app_do%3Aamzn1.fos.5e544547-1f8e-4072-8c08-ed563e39fc7d&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1 </Url>
+          <Url>https://www.amazon.es/KHOMO-GEAR-Galvanizado-Verduras-Interior/dp/B08K97FVYN/ref=sr_1_1?__mk_es_ES=%25C3%2585M%25C3%2585%25C5%25BD%25C3%2595%25C3%2591&amp;crid=3T6WKS7CPE7PQ&amp;keywords=jardiner%25C3%25ADa+urbana+y+huerto+en+apartamentos&amp;qid=1706199473&amp;sprefix=jardiner%25C3%25ADa+urbana+y+huertos+en+apartamentos%252Caps%252C90&amp;sr=8-1&amp;ufe=app_do%253Aamzn1.fos.5e544547-1f8e-4072-8c08-ed563e39fc7d&_encoding=UTF8&tag=lucastomic-21&linkCode=ur2&linkId=d0b35c9b543ceac51081d70bdc0ca32e&camp=3638&creative=24630 </Url>
         </Product>
         <Product>
-          <Title> Smartbox - Caja Regalo SPA y Relax para Dos</Title>
+          <Title>Huerto Urbano con invernadero de 52 litros en polipropileno 77 x 38 x 82 cm color antracita</Title>
           <ImageName>imagen2.jpg</ImageName>
-          <Url> https://www.amazon.es/Smartbox-regalo-actividad-bienestar-personas/dp/B07Z5LKT1Q/ref=sr_1_3_sspa?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2K31EQHS5C13O&keywords=smart%2Bbox&qid=1704302305&sprefix=smart%2Bbox%2Caps%2C169&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1</Url>
+          <Url> https://www.amazon.es/Zanvic-ESPA-Huerto-Urbano-Antracita/dp/B079RMHN81/ref=sr_1_2?__mk_es_ES=%25C3%2585M%25C3%2585%25C5%25BD%25C3%2595%25C3%2591&amp;crid=3T6WKS7CPE7PQ&amp;keywords=jardiner%25C3%25ADa+urbana+y+huerto+en+apartamentos&amp;qid=1706199473&amp;sprefix=jardiner%25C3%25ADa+urbana+y+huertos+en+apartamentos%252Caps%252C90&amp;sr=8-2&_encoding=UTF8&tag=lucastomic-21&linkCode=ur2&linkId=7198fc33fb359c2fe9d5082b52c87a01&camp=3638&creative=24630</Url>
         </Product>
         <Product>
-          <Title> ÍNTIMOOS - El Mejor Juego para Parejas- Aniversario Regalos Originales, para 2 jugadores </Title>
+          <Title> Outsunny Huerto Urbano Elevado de Madera 122,5x56,5x76 cm Jardinera Elevada Mesa de Cultivo con Tela no Tejida y 4 Orificios de Drenaje para Cultivos Plantas Flores Natural </Title>
           <ImageName>imagen3.jpg</ImageName>
-          <Url> https://www.amazon.es/GUATAFAC-Juegos-Pareja-%C3%8DNTIMOOS-Aniversario/dp/B0BG8X2W2M/ref=sr_1_5?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2IWUDWAQB0J5&keywords=pareja&qid=1704302331&sprefix=pareja%2Caps%2C150&sr=8-5</Url>
+          <Url> https://www.amazon.es/Outsunny-Elevado-Jardinera-Orificios-Cultivos/dp/B0BRKF63M2/ref=sr_1_5?__mk_es_ES=%25C3%2585M%25C3%2585%25C5%25BD%25C3%2595%25C3%2591&amp;crid=3T6WKS7CPE7PQ&amp;keywords=jardiner%25C3%25ADa+urbana+y+huerto+en+apartamentos&amp;qid=1706202378&amp;sprefix=jardiner%25C3%25ADa+urbana+y+huertos+en+apartamentos%252Caps%252C90&amp;sr=8-5&_encoding=UTF8&tag=lucastomic-21&linkCode=ur2&linkId=d365b3526ccd4584c05c4cfb46e45e16&camp=3638&creative=24630</Url>
         </Product>
         <Product>
-          <Title> Sin Rechistar - Juego de Parejas - Juego de Parejas mas Divertido de España para Vivir Momentos Inolvidables - Regalos Originales - Regalo Aniversario Pareja </Title>
+          <Title> Outsunny Jardinera Elevada Cama de Jardín Elevada Rectangular Mesa de Cultivo para Plantas Verduras y Flores con 3 Orificios de Drenaje 100x30x80 cm Gris</Title>
           <ImageName>imagen4.jpg</ImageName>
-          <Url> https://www.amazon.es/SIN-RECHISTAR-Inolvidables-Originales-Aniversario/dp/B0B84LGPGT/ref=sr_1_9?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2IWUDWAQB0J5&keywords=pareja&qid=1704302331&sprefix=pareja%2Caps%2C150&sr=8-9</Url>
+          <Url> https://www.amazon.es/Outsunny-Jardinera-Rectangular-Orificios-100x30x80/dp/B08NYJC9FL/ref=sr_1_9?__mk_es_ES=%25C3%2585M%25C3%2585%25C5%25BD%25C3%2595%25C3%2591&amp;crid=3T6WKS7CPE7PQ&amp;keywords=jardiner%25C3%25ADa+urbana+y+huerto+en+apartamentos&amp;qid=1706202378&amp;sprefix=jardiner%25C3%25ADa+urbana+y+huertos+en+apartamentos%252Caps%252C90&amp;sr=8-9&_encoding=UTF8&tag=lucastomic-21&linkCode=ur2&linkId=83ebee93eab699045d6c749b42b21512&camp=3638&creative=24630</Url>
         </Product>
     </Products>
 </WebData>
+
