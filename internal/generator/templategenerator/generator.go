@@ -1,34 +1,45 @@
 package templategenerator
 
 import (
+	"context"
 	"fmt"
 	"html/template"
 	"os"
 
+	"github.com/lucastomic/web-generator/web-generator/internal/logging"
 	"github.com/lucastomic/web-generator/web-generator/internal/pagedata"
 )
 
 type Generator struct {
 	templatePath string
+	logging      logging.Logger
 }
 
-func New(path string) Generator {
-	return Generator{path}
+func New(templatePath string, logging logging.Logger) Generator {
+	return Generator{templatePath, logging}
 }
 
-func (gen Generator) Generate(pageData pagedata.PageData) error {
+func (gen Generator) GenerateAndGetPaths(
+	ctx context.Context,
+	pageData pagedata.PageData,
+) ([]string, error) {
 	tmpl, err := gen.createTemplate()
 	if err != nil {
-		return err
+		return []string{}, err
 	}
-	fileName := fmt.Sprintf("../generated/%s.html", pageData.Title)
-	file, err := os.Create(fileName)
+	filePath := fmt.Sprintf("../tmp/%s.html", pageData.Title)
+	file, err := os.Create(filePath)
 	if err != nil {
-		return err
+		return []string{}, err
 	}
 	defer file.Close()
 
-	return tmpl.Execute(file, pageData)
+	err = tmpl.Execute(file, pageData)
+	if err != nil {
+		return []string{}, err
+	}
+
+	return []string{filePath}, nil
 }
 
 func (gen Generator) createTemplate() (*template.Template, error) {

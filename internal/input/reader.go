@@ -1,7 +1,11 @@
 package input
 
-import "github.com/lucastomic/web-generator/web-generator/internal/pagedata"
+import (
+	"net/http"
+
+	"github.com/lucastomic/web-generator/web-generator/internal/pagedata"
+)
 
 type Reader interface {
-	RetrieveInput() pagedata.PageData
+	RetrieveInput(http.Request) (pagedata.PageData, error)
 }

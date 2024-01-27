@@ -5,20 +5,15 @@ import (
 
 	"github.com/lucastomic/web-generator/web-generator/internal/generator/templategenerator"
 	xmlinput "github.com/lucastomic/web-generator/web-generator/internal/input/xmlInput"
+	"github.com/lucastomic/web-generator/web-generator/internal/logging"
+	"github.com/lucastomic/web-generator/web-generator/internal/server"
 )
 
 func main() {
-	inputPath, _ := filepath.Abs("../inputs/firstPage.xml")
 	tmplPath, _ := filepath.Abs("../templates/template.html")
-	reader := xmlinput.New(inputPath)
-	generator := templategenerator.New(tmplPath)
-
-	data, err := reader.RetrieveInput()
-	if err != nil {
-		panic(err)
-	}
-	err = generator.Generate(data)
-	if err != nil {
-		panic(err)
-	}
+	logger := logging.NewLogrusLogger()
+	reader := xmlinput.New(logger)
+	generator := templategenerator.New(tmplPath, logger)
+	server := server.New(":3001", generator, reader, logger)
+	server.Run()
 }

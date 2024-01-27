@@ -2,21 +2,25 @@ package xmlinput
 
 import (
 	"encoding/xml"
-	"os"
+	"io"
+	"net/http"
 
+	"github.com/lucastomic/web-generator/web-generator/internal/logging"
 	"github.com/lucastomic/web-generator/web-generator/internal/pagedata"
 )
 
+var inputFileParameter = "input"
+
 type Reader struct {
-	filePath string
+	logging logging.Logger
 }
 
-func New(filePath string) Reader {
-	return Reader{filePath}
+func New(logging logging.Logger) Reader {
+	return Reader{logging: logging}
 }
 
-func (reader Reader) RetrieveInput() (pagedata.PageData, error) {
-	file, err := os.Open(reader.filePath)
+func (reader Reader) RetrieveInput(req http.Request) (pagedata.PageData, error) {
+	file, _, err := req.FormFile(inputFileParameter)
 	if err != nil {
 		return pagedata.PageData{}, err
 	}
@@ -24,7 +28,7 @@ func (reader Reader) RetrieveInput() (pagedata.PageData, error) {
 	return reader.parseFile(file)
 }
 
-func (reader Reader) parseFile(file *os.File) (pagedata.PageData, error) {
+func (reader Reader) parseFile(file io.Reader) (pagedata.PageData, error) {
 	var pageData pagedata.PageData
 	decoder := xml.NewDecoder(file)
 	decoder.Strict = false
