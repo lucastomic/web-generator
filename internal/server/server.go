@@ -6,22 +6,22 @@ import (
 	"math/rand"
 	"net/http"
 
-	"github.com/lucastomic/web-generator/web-generator/internal/generator"
 	"github.com/lucastomic/web-generator/web-generator/internal/input"
 	"github.com/lucastomic/web-generator/web-generator/internal/logging"
 	"github.com/lucastomic/web-generator/web-generator/internal/types"
+	webprocessor "github.com/lucastomic/web-generator/web-generator/internal/webProcessor"
 )
 
 type Server struct {
 	listenAddr  string
-	service     generator.Generator
+	service     webprocessor.WebProcessor
 	inputParser input.Reader
 	logging     logging.Logger
 }
 
 func New(
 	listenAddr string,
-	service generator.Generator,
+	service webprocessor.WebProcessor,
 	inputParser input.Reader,
 	logging logging.Logger,
 ) Server {
@@ -41,11 +41,8 @@ func (s *Server) Run() {
 func makeHTTPHandlerFunc(apiFn types.APIFunc) http.HandlerFunc {
 	ctx := context.Background()
 	ctx = context.WithValue(ctx, "requestID", rand.Intn(10000000))
-
 	return func(w http.ResponseWriter, r *http.Request) {
-		if err := apiFn(ctx, w, r); err != nil {
-			writeJSON(w, http.StatusBadRequest, map[string]any{"error": err.Error()})
-		}
+		apiFn(ctx, w, r)
 	}
 }
 
@@ -56,17 +53,13 @@ func (s Server) handleGenerationReq(
 ) error {
 	pageData, err := s.inputParser.RetrieveInput(*req)
 	if err != nil {
-		return err
+		writeJSON(writer, http.StatusBadRequest, map[string]any{"error": err.Error()})
 	}
-	paths, err := s.service.GenerateAndGetPaths(ctx, pageData)
+	err = s.service.Process(ctx, pageData)
 	if err != nil {
-		return err
+		writeJSON(writer, http.StatusBadRequest, map[string]any{"error": err.Error()})
 	}
-	for path := range paths {
-		_ = path
-		// send file to infraestructure service
-	}
-	writeJSON(writer, 200, nil)
+	writeJSON(writer, 200, map[string]any{"message": "Web generated successfully"})
 	return nil
 }
 

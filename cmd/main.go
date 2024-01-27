@@ -7,6 +7,7 @@ import (
 	xmlinput "github.com/lucastomic/web-generator/web-generator/internal/input/xmlInput"
 	"github.com/lucastomic/web-generator/web-generator/internal/logging"
 	"github.com/lucastomic/web-generator/web-generator/internal/server"
+	webprocessor "github.com/lucastomic/web-generator/web-generator/internal/webProcessor"
 )
 
 func main() {
@@ -14,6 +15,7 @@ func main() {
 	logger := logging.NewLogrusLogger()
 	reader := xmlinput.New(logger)
 	generator := templategenerator.New(tmplPath, logger)
-	server := server.New(":3001", generator, reader, logger)
+	webprocessor := webprocessor.New(logger, generator)
+	server := server.New(":3001", webprocessor, reader, logger)
 	server.Run()
 }
