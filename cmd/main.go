@@ -3,11 +3,11 @@ package main
 import (
 	"path/filepath"
 
-	"github.com/lucastomic/web-generator/web-generator/internal/generator/templategenerator"
-	xmlinput "github.com/lucastomic/web-generator/web-generator/internal/input/xmlInput"
-	"github.com/lucastomic/web-generator/web-generator/internal/logging"
-	"github.com/lucastomic/web-generator/web-generator/internal/server"
-	webprocessor "github.com/lucastomic/web-generator/web-generator/internal/webProcessor"
+	"github.com/lucastomic/web-generator-service/internal/generator/templategenerator"
+	xmlinput "github.com/lucastomic/web-generator-service/internal/input/xmlInput"
+	"github.com/lucastomic/web-generator-service/internal/logging"
+	"github.com/lucastomic/web-generator-service/internal/server"
+	webprocessor "github.com/lucastomic/web-generator-service/internal/webProcessor"
 )
 
 func main() {

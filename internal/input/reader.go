@@ -3,7 +3,7 @@ package input
 import (
 	"net/http"
 
-	"github.com/lucastomic/web-generator/web-generator/internal/pagedata"
+	"github.com/lucastomic/web-generator-service/internal/pagedata"
 )
 
 type Reader interface {

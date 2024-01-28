@@ -5,8 +5,8 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/lucastomic/web-generator/web-generator/internal/logging"
-	"github.com/lucastomic/web-generator/web-generator/internal/pagedata"
+	"github.com/lucastomic/web-generator-service/internal/logging"
+	"github.com/lucastomic/web-generator-service/internal/pagedata"
 )
 
 var inputFileParameter = "input"

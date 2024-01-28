@@ -6,10 +6,10 @@ import (
 	"math/rand"
 	"net/http"
 
-	"github.com/lucastomic/web-generator/web-generator/internal/input"
-	"github.com/lucastomic/web-generator/web-generator/internal/logging"
-	"github.com/lucastomic/web-generator/web-generator/internal/types"
-	webprocessor "github.com/lucastomic/web-generator/web-generator/internal/webProcessor"
+	"github.com/lucastomic/web-generator-service/internal/input"
+	"github.com/lucastomic/web-generator-service/internal/logging"
+	"github.com/lucastomic/web-generator-service/internal/types"
+	webprocessor "github.com/lucastomic/web-generator-service/internal/webProcessor"
 )
 
 type Server struct {

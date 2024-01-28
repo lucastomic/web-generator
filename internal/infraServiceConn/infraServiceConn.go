@@ -2,22 +2,30 @@ package infraserviceconn
 
 import (
 	"bytes"
+	"fmt"
 	"io"
+	"math/rand"
 	"mime/multipart"
 	"net/http"
 	"os"
+
+	"github.com/lucastomic/web-generator-service/internal/infraServiceConn/compression"
 )
 
-func SendFileToInfraService(path string) error {
+func SendFilesToInfraService(paths []string) error {
 	infrastructureURL := os.Getenv("INFRASTRUCTURE_SERVICE_ENDPOINT")
-
-	file, err := os.Open(path)
+	compressedPath := fmt.Sprintf("/tmp/%d.zip", rand.Int())
+	_, err := compression.CompressFiles(compressedPath, paths)
 	if err != nil {
 		return err
 	}
-	defer file.Close()
+	file, err := os.Open(compressedPath)
+	if err != nil {
+		return err
+	}
+	defer os.Remove(compressedPath)
 
-	reqBody, contentType, err := createMultipartBody(file, path)
+	reqBody, contentType, err := createMultipartBody(file, compressedPath)
 	if err != nil {
 		return err
 	}

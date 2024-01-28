@@ -6,8 +6,8 @@ import (
 	"html/template"
 	"os"
 
-	"github.com/lucastomic/web-generator/web-generator/internal/logging"
-	"github.com/lucastomic/web-generator/web-generator/internal/pagedata"
+	"github.com/lucastomic/web-generator-service/internal/logging"
+	"github.com/lucastomic/web-generator-service/internal/pagedata"
 )
 
 type Generator struct {

@@ -3,7 +3,7 @@ package generator
 import (
 	"context"
 
-	"github.com/lucastomic/web-generator/web-generator/internal/pagedata"
+	"github.com/lucastomic/web-generator-service/internal/pagedata"
 )
 
 type Generator interface {

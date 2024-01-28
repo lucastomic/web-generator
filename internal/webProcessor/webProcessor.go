@@ -2,12 +2,11 @@ package webprocessor
 
 import (
 	"context"
-	"sync"
 
-	"github.com/lucastomic/web-generator/web-generator/internal/generator"
-	infraserviceconn "github.com/lucastomic/web-generator/web-generator/internal/infraServiceConn"
-	"github.com/lucastomic/web-generator/web-generator/internal/logging"
-	"github.com/lucastomic/web-generator/web-generator/internal/pagedata"
+	"github.com/lucastomic/web-generator-service/internal/generator"
+	infraserviceconn "github.com/lucastomic/web-generator-service/internal/infraServiceConn"
+	"github.com/lucastomic/web-generator-service/internal/logging"
+	"github.com/lucastomic/web-generator-service/internal/pagedata"
 )
 
 type WebProcessor interface {
@@ -28,31 +27,6 @@ func (wp webProcessor) Process(ctx context.Context, pageData pagedata.PageData) 
 	if err != nil {
 		return err
 	}
-
-	var wg sync.WaitGroup
-	errChan := make(chan error, len(paths))
-
-	for _, path := range paths {
-		wg.Add(1)
-		go sendToInfraService(path, errChan, &wg)
-	}
-
-	wg.Wait()
-	close(errChan)
-
-	for err := range errChan {
-		if err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-func sendToInfraService(path string, errChan chan error, wg *sync.WaitGroup) {
-	defer wg.Done()
-	err := infraserviceconn.SendFileToInfraService(path)
-	if err != nil {
-		errChan <- err
-	}
+	err = infraserviceconn.SendFilesToInfraService(paths)
+	return err
 }
