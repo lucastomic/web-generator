@@ -3,6 +3,7 @@ package server
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"math/rand"
 	"net/http"
 
@@ -34,15 +35,20 @@ func New(
 }
 
 func (s *Server) Run() {
-	http.HandleFunc("/", makeHTTPHandlerFunc(s.handleGenerationReq))
+	http.HandleFunc("/", s.makeHTTPHandlerFunc(s.handleGenerationReq))
+	s.logging.Info(fmt.Sprintf("Service running in %s", s.listenAddr))
 	http.ListenAndServe(s.listenAddr, nil)
 }
 
-func makeHTTPHandlerFunc(apiFn types.APIFunc) http.HandlerFunc {
+func (s *Server) makeHTTPHandlerFunc(apiFn types.APIFunc) http.HandlerFunc {
 	ctx := context.Background()
 	ctx = context.WithValue(ctx, "requestID", rand.Intn(10000000))
 	return func(w http.ResponseWriter, r *http.Request) {
-		apiFn(ctx, w, r)
+		err := apiFn(ctx, w, r)
+		if err != nil {
+			s.logging.Request(ctx, r, http.StatusBadRequest)
+			writeJSON(w, http.StatusBadRequest, map[string]any{"error": err.Error()})
+		}
 	}
 }
 
@@ -53,17 +59,17 @@ func (s Server) handleGenerationReq(
 ) error {
 	pageData, err := s.inputParser.RetrieveInput(*req)
 	if err != nil {
-		writeJSON(writer, http.StatusBadRequest, map[string]any{"error": err.Error()})
+		return err
 	}
 	err = s.service.Process(ctx, pageData)
 	if err != nil {
-		writeJSON(writer, http.StatusBadRequest, map[string]any{"error": err.Error()})
+		return err
 	}
-	writeJSON(writer, 200, map[string]any{"message": "Web generated successfully"})
+	writeJSON(writer, http.StatusOK, map[string]any{"message": "Web generated successfully"})
 	return nil
 }
 
-func writeJSON(w http.ResponseWriter, s int, v any) error {
-	w.WriteHeader(s)
+func writeJSON(w http.ResponseWriter, status int, v any) error {
+	w.WriteHeader(status)
 	return json.NewEncoder(w).Encode(v)
 }

@@ -1,0 +1,15 @@
+time="2024-01-30T18:56:29+01:00" level=info msg="Service running in :3001"
+time="2024-01-30T18:58:46+01:00" level=info msg="Service running in :3001"
+time="2024-01-30T19:00:21+01:00" level=info msg="Service running in :3001"
+time="2024-01-30T19:00:24+01:00" level=info msg="2024-01-30 19:00:24 | 5964973 | PostmanRuntime/7.36.1 | 400"
+time="2024-01-30T19:05:32+01:00" level=info msg="Service running in :3001"
+time="2024-01-30T19:05:58+01:00" level=info msg="2024-01-30 19:05:58 | 9341151 | PostmanRuntime/7.36.1 | 400"
+time="2024-01-30T19:07:01+01:00" level=info msg="Service running in :3001"
+time="2024-01-30T19:07:03+01:00" level=info msg="2024-01-30 19:07:03 | 4688009 | PostmanRuntime/7.36.1 | 400" ID=4688009
+[36mINFO[0m[0000] Service running in :3001                     
+time="2024-01-30T19:22:38+01:00" level=info msg="Service running in :3001"
+time="2024-01-30T19:23:23+01:00" level=info msg="2024-01-30 19:23:23 | 4344715 | PostmanRuntime/7.36.1 | 400" ID=4344715
+time="2024-01-30T19:23:27+01:00" level=info msg="2024-01-30 19:23:27 | 4344715 | PostmanRuntime/7.36.1 | 400" ID=4344715
+time="2024-01-30T19:23:29+01:00" level=info msg="2024-01-30 19:23:29 | 4344715 | PostmanRuntime/7.36.1 | 400" ID=4344715
+time="2024-01-30T19:24:16+01:00" level=info msg="Service running in :3001"
+time="2024-01-30T19:24:20+01:00" level=info msg="2024-01-30 19:24:20 | PostmanRuntime/7.36.1 | 400" requestID=4419745
