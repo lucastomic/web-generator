@@ -25,8 +25,12 @@ func New(l logging.Logger, g generator.Generator) WebProcessor {
 func (wp webProcessor) Process(ctx context.Context, pageData pagedata.PageData) error {
 	paths, err := wp.GenerateAndGetPaths(ctx, pageData)
 	if err != nil {
+		wp.logging.Error(ctx, "Error trying to create WEB: %s", err)
 		return err
 	}
 	err = infraserviceconn.SendFilesToInfraService(paths)
+	if err != nil {
+		wp.logging.Error(ctx, "Error trying to send WEB to Infrastructure service: %s", err.Error())
+	}
 	return err
 }

@@ -7,8 +7,8 @@ import (
 
 type Logger interface {
 	Request(context.Context, *http.Request, int)
-	Info(args ...any)
+	Info(ctx context.Context, format string, a ...any)
+	Error(ctx context.Context, format string, a ...any)
 	Warn(args ...any)
-	Error(args ...any)
 	Fatal(args ...any)
 }

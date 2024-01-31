@@ -43,9 +43,9 @@ func (l *LogrusLogger) Request(ctx context.Context, req *http.Request, status in
 	}
 }
 
-func (l *LogrusLogger) Info(args ...interface{}) {
+func (l *LogrusLogger) Info(ctx context.Context, format string, a ...any) {
 	for _, logger := range l.loggers {
-		logger.Info(args...)
+		logger.WithField("requestID", ctx.Value("requestID")).Info(fmt.Sprintf(format, a))
 	}
 }
 
@@ -55,9 +55,9 @@ func (l *LogrusLogger) Warn(args ...interface{}) {
 	}
 }
 
-func (l *LogrusLogger) Error(args ...interface{}) {
+func (l *LogrusLogger) Error(ctx context.Context, format string, a ...any) {
 	for _, logger := range l.loggers {
-		logger.Error(args...)
+		logger.WithField("requestID", ctx.Value("requestID")).Error(fmt.Sprintf(format, a))
 	}
 }
 

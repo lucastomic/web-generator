@@ -3,7 +3,6 @@ package server
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"math/rand"
 	"net/http"
 
@@ -36,7 +35,7 @@ func New(
 
 func (s *Server) Run() {
 	http.HandleFunc("/", s.makeHTTPHandlerFunc(s.handleGenerationReq))
-	s.logging.Info(fmt.Sprintf("Service running in %s", s.listenAddr))
+	s.logging.Info(context.TODO(), "Service running in %s", s.listenAddr)
 	http.ListenAndServe(s.listenAddr, nil)
 }
 
